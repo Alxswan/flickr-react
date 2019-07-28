@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import useApi from "./hooks/";
+import Search from "./components/Search";
+import Error from "./components/Error";
+import Loading from "./components/Loading";
+import Results from "./components/Results";
+
+import "./App.css";
 
 function App() {
+  const [{ searchTerm, data, isLoading, isError }, setSearchTerm] = useApi();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
+      {isError && <Error />}
+
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Results data={data}/>
+      )}
+
+      {!isLoading && data && !data.length && searchTerm && (
+        <div>No results</div>
+      )}
+    </>
   );
 }
 

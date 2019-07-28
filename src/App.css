@@ -1,33 +1,111 @@
-.App {
+input {
+  width: 100%;
+  padding: 20px;
+}
+
+.search-form {
+  max-width: 80%;
+  margin: 50px auto;
+}
+
+input.search {
+  margin: 0;
+  margin-bottom: 20px;
   text-align: center;
+  outline: 0;
+  border: 10px solid #f7f7f7;
+  position: relative;
+  top: 10px;
+  border-radius: 5px;
+  font-size: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.results {
+  width: 80%;
+  margin: 0 auto;
+  column-count: 4;
+  column-gap: 1em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+img {
+  max-width: 120px;
+  /* max-height: 100px; */
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid lightgray;
+  margin: 0;
+  min-height: 250px;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  -webkit-box-shadow: 0px 3px 9px 1px rgba(227,220,227,1);
+  -moz-box-shadow: 0px 3px 9px 1px rgba(227,220,227,1);
+  box-shadow: 0px 3px 9px 1px rgba(227,220,227,1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card img {
+  margin: 0 0 0.5em 0;
+}
+
+@media screen and (max-width: 768px) {
+  .results {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 480px) {
+  .results {
+    width: 100%;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .results {
+    column-count: 3;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .results {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .results {
+    column-count: 1;
+  }
+}
+
+.name {
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 10px;
+}
+
+.tags {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+}
+
+.date {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 5px;
+}
+
+#empty {
+  width: 65px;
+  margin: auto;
+  padding-top: 20px;
 }
