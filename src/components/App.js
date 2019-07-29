@@ -1,9 +1,9 @@
 import React from "react";
-import useApi from "./hooks/";
-import Search from "./components/Search";
-import Error from "./components/Error";
-import Loading from "./components/Loading";
-import Results from "./components/Results";
+import useApi from "../hooks/";
+import Search from "./Search";
+import Error from "./Error";
+import Loading from "./Loading";
+import Results from "./Results";
 
 import "./App.css";
 

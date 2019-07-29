@@ -1,5 +1,5 @@
 import React from "react";
-import { getAuthorName, getDateString, getTagString } from "../utils";
+import { getAuthorName, getDateString, getTagString } from "../lib/string-utils";
 
 function Card({ item }) {
   return (

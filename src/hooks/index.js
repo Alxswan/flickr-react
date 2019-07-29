@@ -1,7 +1,7 @@
 import { useState, useEffect, useReducer } from "react";
 import useDebounce from "./debounce";
 import reducer from "./reducer";
-import fetchImages from "../api/";
+import { fetchImages } from "../api/";
 
 const useApi = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -10,7 +10,7 @@ const useApi = () => {
     searchTerm,
     isLoading: false,
     isError: false,
-    data: null,
+    data: null
   });
 
   useEffect(() => {
@@ -25,14 +25,13 @@ const useApi = () => {
     }
     const fetchData = async () => {
       dispatch({ type: "FETCH_INIT" });
-      fetchImages(debouncedSearchTerm)
-        .done(result => {
-          dispatch({ type: "FETCH_SUCCESS", payload: result.items });
-        })
-        .fail(error => {
-          console.error(error);
-          dispatch({ type: "FETCH_FAILURE" });
-        });
+      try {
+        const results = await fetchImages(debouncedSearchTerm);
+        dispatch({ type: "FETCH_SUCCESS", payload: results.items });
+      } catch (err) {
+        console.error(err);
+        dispatch({ type: "FETCH_FAILURE" });
+      }
     };
 
     fetchData();
