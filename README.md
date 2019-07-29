@@ -1,4 +1,4 @@
-This project is deployed at https://flickr-2-hzzneaynoo.now.sh/
+This project is deployed at https://flickr-2-ihkjhbfjiv.now.sh
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
